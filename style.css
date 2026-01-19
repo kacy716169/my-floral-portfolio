@@ -211,88 +211,68 @@ footer {
 }
 
 /* 響應式調整 */
-@media screen and (max-width: 768px) {
-    /* 1. Header 整體修正：解決看起來太小、太窄的問題 */
-    header {
-        width: 100% !important;
-        background-color: #4a4a4a !important; /* 確保深色背景填滿 */
-    }
+從妳提供的截圖來看，Header 變得「太高」且選單位置偏移，主因是代碼中多出了一行 height: 200px;。
 
+在 CSS 響應式佈局中，通常不建議固定高度，因為這會限制內容的排版彈性。當妳設定了 200px，加上原本的 padding: 40px，整個 Header 會被撐到非常巨大，導致妳看到的比例失衡。
+
+請按照以下步驟修正，同時解決妳提到的「橫線」與「空白」問題：
+
+🛠️ 修正版 CSS (請替換原本的 @media 內容)
+CSS
+
+@media screen and (max-width: 768px) {
+    /* 1. Header 修正：刪除固定高度，改用 padding 撐開 */
     header nav.container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        /* 調整 Padding：上方 40px，下方 40px，讓深色區塊厚實有質感 */
-        padding: 40px 0 40px 0 !important; 
+        justify-content: center !important;
+        /* 刪除 height: 200px; */
+        padding: 50px 0 !important; /* 增加上下間距讓 Header 顯得大氣 */
         width: 100% !important;
-        height: 200px;
         max-width: none !important;
     }
 
     .logo {
-        font-size: 1.8rem !important; /* 顯著放大 Logo */
-        margin-bottom: 10px !important;
-        letter-spacing: 2px !important;
+        font-size: 2rem !important; /* 放大 Logo 增加氣勢 */
+        margin-bottom: 20px !important;
         color: #ffffff !important;
     }
 
-    .menu {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 30px !important; /* 拉開「關於我」與「作品集」的距離 */
-        padding: 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
+    /* 2. 移除 About 圖片上方的橫線 */
+    .about-section {
+        border-top: none !important; /* 移除可能存在的頂部邊框線 */
+        padding-top: 0 !important;
     }
 
-    .menu li a {
-        font-size: 1.1rem !important;
-        color: #cccccc !important;
-        text-decoration: none !important;
-    }
-
-    /* 2. 全域左右邊距：確保內容不貼邊 */
-    .about-content, .section-header, .projects, footer {
-        padding-left: 35px !important; 
-        padding-right: 35px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 3. About 區塊優化 */
+    /* 3. 調整圖片與文字標題的間距 */
     .about-layout {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin-top: 30px !important;
+        margin-top: 20px !important;
+    }
+
+    .about-image {
+        margin-bottom: 5px !important; /* 大幅減少圖片下方的空白 */
     }
 
     .about-image img {
-        width: 200px !important;
-        height: 200px !important;
-        margin-bottom: 25px !important;
+        width: 220px !important; /* 放大頭像比例 */
+        height: 220px !important;
+        margin-bottom: 0 !important;
     }
 
-    .about-text {
-        line-height: 2 !important;
-        text-align: justify !important;
+    .about-title {
+        margin-top: 10px !important; /* 讓標題靠近圖片 */
     }
 
-    /* 4. 作品集與 Footer 距離優化 */
+    /* 4. 作品集優化 */
     .projects {
         display: flex !important;
         flex-direction: column !important;
-        gap: 30px !important;
-        margin-bottom: 60px !important; /* 增加底部留白，解決黏太緊問題 */
-    }
-
-    .projects img {
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 4px !important;
-    }
-
-    /* 5. Footer 文字修正 */
-    footer .footer-section {
-        padding: 30px 0 !important;
+        gap: 25px !important;
+        margin-bottom: 60px !important; /* 維持與 Footer 的優雅距離 */
+        padding: 0 35px !important;
     }
 }
