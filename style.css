@@ -211,33 +211,59 @@ footer {
 }
 
 /* 響應式調整 */
-@media (max-width: 768px) {
-    /* 1. 讓容器變成垂直排列 */
-    .about-container {
+@media screen and (max-width: 768px) {
+    /* 1. 解決 Header 變兩行的問題：縮小 Logo 並讓選單橫排 */
+    header {
         display: flex !important;
-        flex-direction: column !important; /* 核心：強制上下並排 */
-        align-items: center !important;    /* 讓圖片與文字在垂直軸上置中 */
-        padding: 40px 20px !important;    /* 增加上下間距，讓畫面有呼吸感 */
+        flex-direction: row !important; /* 確保橫向 */
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 15px !important;
+        height: auto !important;
     }
 
-    /* 2. 調整圖片大小與順序 */
-    .profile-img {
-        order: 1 !important;        /* 確保圖片在第一個順位 */
-        width: 180px !important;    /* 固定寬度，防止在手機上太大 */
-        height: 180px !important;
-        margin-bottom: 30px !important; /* 與下方文字保持距離 */
+    .logo {
+        font-size: 1rem !important; /* 大幅縮小 Logo 避免擠壓 */
+        margin: 0 !important;
     }
 
-    /* 3. 調整文字內容 */
-    .about-text {
-        order: 2 !important;        /* 確保文字在第二個順位 */
-        width: 100% !important;     /* 寬度撐滿，不再擠在右邊 */
-        text-align: center !important; /* 讓段落文字居中，比較符合手機閱讀美感 */
+    nav ul {
+        display: flex !important;
+        gap: 10px !important; /* 縮小導覽選項間距 */
+        margin: 0 !important;
         padding: 0 !important;
     }
 
-    .about-text p {
-        line-height: 1.8 !important; /* 增加行距，解決妳之前提到的貼邊感 */
-        margin-bottom: 15px !important;
+    /* 2. 解決圖片在左文字在右：強制垂直排列 */
+    .about-container {
+        display: block !important; /* 徹底放棄 flex，用最原始的上下排列 */
+        padding: 20px !important;
+        text-align: center !important;
+    }
+
+    .profile-img {
+        display: block !important;
+        margin: 0 auto 20px auto !important; /* 置中並給下方留白 */
+        width: 200px !important;
+        height: 200px !important;
+        float: none !important; /* 萬一妳有用 float，這行能救命 */
+    }
+
+    .about-text {
+        width: 100% !important; /* 強制寬度 100%，文字才會掉下來 */
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 3. 解決作品集一行 3 張：強制一行 1 張 */
+    .works-grid {
+        display: block !important; /* 放棄 grid/flex，讓圖片直接堆疊 */
+    }
+
+    .works-grid img {
+        width: 100% !important; /* 圖片撐滿寬度 */
+        margin-bottom: 20px !important; /* 每張圖之間留空隙 */
+        height: auto !important;
     }
 }
