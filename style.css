@@ -213,21 +213,25 @@ footer {
 /* 響應式調整 */
 @media screen and (max-width: 768px) {
     /* 1. Header: 徹底解決巨大化與偏移問題 */
+    @media screen and (max-width: 768px) {
+    /* 1. Header 再加大：增加上下 Padding，並讓 Logo 字體更有份量 */
     header nav.container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important;
-        height: auto !important;      /* 強制解除妳之前寫的 200px */
-        min-height: 0 !important;
-        padding: 50px 0 !important;   /* 用 padding 撐出舒服的高度 */
+        /* 將上下 padding 從 40px 增加到 60px，讓深色區域更寬大顯眼 */
+        padding: 60px 0 !important; 
         width: 100% !important;
     }
 
     .logo {
-        font-size: 2rem !important;
-        margin-bottom: 15px !important;
-        line-height: 1.2 !important;
+        font-size: 2.2rem !important; /* Logo 再放大，更有品牌感 */
+        margin-bottom: 25px !important; /* 增加與選單的間距 */
+        color: #ffffff !important;
+    }
+
+    .menu {
+        gap: 40px !important; /* 選單選項間距加大，更好點擊 */
     }
 
     /* 2. 移除 About 圖片上方的橫線 */
