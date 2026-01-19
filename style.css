@@ -225,12 +225,13 @@ footer {
         /* 調整 Padding：上方 40px，下方 40px，讓深色區塊厚實有質感 */
         padding: 40px 0 40px 0 !important; 
         width: 100% !important;
+        height: 200px;
         max-width: none !important;
     }
 
     .logo {
         font-size: 1.8rem !important; /* 顯著放大 Logo */
-        margin-bottom: 20px !important;
+        margin-bottom: 10px !important;
         letter-spacing: 2px !important;
         color: #ffffff !important;
     }
