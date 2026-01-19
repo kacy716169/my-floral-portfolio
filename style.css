@@ -212,63 +212,34 @@ footer {
 
 /* 響應式調整 */
 @media (max-width: 768px) {
-    /* 修正全域溢出問題 */
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* 1. Header 調整：縮小 Logo 與選單間距 */
+    /* 1. Header 緊湊化 */
     header {
-        padding: 15px 10px !important;
-        display: flex !important;
-        flex-direction: column !important; /* 上下排列，騰出橫向空間 */
-        align-items: center !important;
+        flex-direction: column !important;
+        padding: 10px 0 !important;
     }
+    .logo { font-size: 1.1rem !important; margin-bottom: 5px !important; }
+    nav ul { gap: 10px !important; padding: 0 !important; }
 
-    header .logo {
-        font-size: 1.2rem !important; /* 縮小 Logo */
-        margin-bottom: 8px !important;
+    /* 2. About Me 排版修正 */
+    .about-container { 
+        display: block !important; /* 棄用 flex，改用最穩定的塊狀排列 */
+        padding: 0 25px !important;
     }
-
-    nav ul {
-        gap: 15px !important; /* 縮小「關於我」與「作品集」的距離 */
-        padding: 0 !important;
-    }
-
-    /* 2. About 部分：圖片在上，文字在下 */
-    .about-container { /* 假設妳的 HTML 結構包裹這兩個的是這個 class */
-        display: flex !important;
-        flex-direction: column !important; /* 強制垂直排列 */
-        align-items: center !important;
-        padding: 0 20px !important;
-    }
-
     .profile-img {
-        width: 200px !important; /* 縮小圓形頭像 */
-        height: 200px !important;
+        width: 150px !important; /* 縮小頭像 */
+        height: 150px !important;
         margin: 0 auto 20px auto !important;
+        display: block !important;
     }
-
     .about-text {
-        width: 100% !important;
-        text-align: center !important; /* 文字置中對齊 */
-        padding: 0 !important;
+        width: 100% !important; /* 寬度佔滿，不再被擠到右邊 */
+        text-align: center !important;
     }
 
-    /* 3. 作品集調整：圖片放大 */
-    .works-grid { /* 假設妳的作品集容器 class 名稱 */
+    /* 3. 作品集放大 */
+    .works-grid {
         display: grid !important;
-        grid-template-columns: 1fr !important; /* 改成一列一個，圖片才會大 */
-        gap: 20px !important;
+        grid-template-columns: 1fr !important; /* 一次只顯示一張圖 */
         padding: 0 20px !important;
-    }
-
-    .works-grid img {
-        width: 100% !important; /* 寬度撐滿 */
-        height: auto !important;
-        border-radius: 8px;
     }
 }
