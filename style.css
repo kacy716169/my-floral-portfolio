@@ -212,34 +212,32 @@ footer {
 
 /* 響應式調整 */
 @media (max-width: 768px) {
-    /* 1. Header 緊湊化 */
-    header {
-        flex-direction: column !important;
-        padding: 10px 0 !important;
+    /* 1. 讓容器變成垂直排列 */
+    .about-container {
+        display: flex !important;
+        flex-direction: column !important; /* 核心：強制上下並排 */
+        align-items: center !important;    /* 讓圖片與文字在垂直軸上置中 */
+        padding: 40px 20px !important;    /* 增加上下間距，讓畫面有呼吸感 */
     }
-    .logo { font-size: 1.1rem !important; margin-bottom: 5px !important; }
-    nav ul { gap: 10px !important; padding: 0 !important; }
 
-    /* 2. About Me 排版修正 */
-    .about-container { 
-        display: block !important; /* 棄用 flex，改用最穩定的塊狀排列 */
-        padding: 0 25px !important;
-    }
+    /* 2. 調整圖片大小與順序 */
     .profile-img {
-        width: 150px !important; /* 縮小頭像 */
-        height: 150px !important;
-        margin: 0 auto 20px auto !important;
-        display: block !important;
-    }
-    .about-text {
-        width: 100% !important; /* 寬度佔滿，不再被擠到右邊 */
-        text-align: center !important;
+        order: 1 !important;        /* 確保圖片在第一個順位 */
+        width: 180px !important;    /* 固定寬度，防止在手機上太大 */
+        height: 180px !important;
+        margin-bottom: 30px !important; /* 與下方文字保持距離 */
     }
 
-    /* 3. 作品集放大 */
-    .works-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important; /* 一次只顯示一張圖 */
-        padding: 0 20px !important;
+    /* 3. 調整文字內容 */
+    .about-text {
+        order: 2 !important;        /* 確保文字在第二個順位 */
+        width: 100% !important;     /* 寬度撐滿，不再擠在右邊 */
+        text-align: center !important; /* 讓段落文字居中，比較符合手機閱讀美感 */
+        padding: 0 !important;
+    }
+
+    .about-text p {
+        line-height: 1.8 !important; /* 增加行距，解決妳之前提到的貼邊感 */
+        margin-bottom: 15px !important;
     }
 }
