@@ -211,18 +211,6 @@ footer {
 }
 
 /* 響應式調整 */
-終於！看到這份 HTML 代碼，破案了。
-
-之前一直修不好，是因為我們一直在猜測類別名稱（例如猜 .about-container），但妳的 HTML 裡真正用的是 .about-layout 和 .about-content。難怪不管怎麼寫 display: flex 都沒有用，因為 CSS 根本找不到這些名字！
-
-而且，妳的作品集區塊也沒有用 grid，而是直接把 img 放在 .projects 裡面。
-
-請完全清空妳 style.css 最下面原本寫壞的那段 @media，直接複製貼上這段針對妳這份 HTML 量身打造的代碼。這次類別名稱（Class Name）一個字都不會錯，絕對會生效：
-
-🛠️ 100% 對應妳 HTML 的 CSS 修正碼
-CSS
-
-/* 請貼在 style.css 的最底端 */
 @media screen and (max-width: 768px) {
     
     /* 1. Header 修正：Logo 縮小，選單置中 */
