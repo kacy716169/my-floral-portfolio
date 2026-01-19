@@ -212,64 +212,86 @@ footer {
 
 /* 響應式調整 */
     @media screen and (max-width: 768px) {
-        /* 1. Header 優化：解決選單「懸崖邊」問題 */
-        header nav.container {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            padding: 20px 0 100px 0 !important; /* 增加下方內距 (Bottom Padding) */
-        }
-        .logo {
-            font-size: 1.4rem !important;
-            margin-bottom: 15px !important; /* 讓 Logo 跟選單也拉開一點 */
-        }
-        .menu {
-            display: flex !important;
-            justify-content: center !important;
-            gap: 25px !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        /* 2. 增加全域左右邊距 (Margin)，讓內容更有呼吸感 */
-        .about-content, .section-header, .projects, footer {
-            padding-left: 35px !important; /* 加大左右空白 */
-            padding-right: 35px !important;
-            box-sizing: border-box !important;
-        }
-
-        /* 3. About 區塊優化 */
-        .about-layout {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            margin-top: 30px !important;
-        }
-        .about-image img {
-            width: 200px !important; /* 稍微放大頭像，視覺較平衡 */
-            height: 200px !important;
-            margin-bottom: 10px !important;
-        }
-        .about-text {
-            line-height: 2 !important; /* 增加行高，閱讀更舒服 */
-            text-align: justify !important;
-        }
-
-        /* 4. 作品集與 Footer 間距優化 */
-        .projects {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 25px !important; /* 圖片之間的間距 */
-            margin-bottom: 20px !important; /* 讓最後一張圖跟 Footer 拉開距離 */
-        }
-        .projects img {
-            width: 100% !important;
-            height: auto !important;
-            border-radius: 4px !important; /* 稍微修圓角比較精緻 */
-        }
-
-        /* 5. Footer 文字修正 */
-        footer .footer-section {
-            padding: 20px 0 !important; /* 增加 Footer 內部的留白 */
-        }
+    /* 1. Header 整體修正：解決看起來太小、太窄的問題 */
+    header {
+        width: 100% !important;
+        background-color: #4a4a4a !important; /* 確保深色背景填滿 */
     }
+
+    header nav.container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        /* 調整 Padding：上方 40px，下方 40px，讓深色區塊厚實有質感 */
+        padding: 40px 0 40px 0 !important; 
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .logo {
+        font-size: 1.8rem !important; /* 顯著放大 Logo */
+        margin-bottom: 20px !important;
+        letter-spacing: 2px !important;
+        color: #ffffff !important;
+    }
+
+    .menu {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 30px !important; /* 拉開「關於我」與「作品集」的距離 */
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    .menu li a {
+        font-size: 1.1rem !important;
+        color: #cccccc !important;
+        text-decoration: none !important;
+    }
+
+    /* 2. 全域左右邊距：確保內容不貼邊 */
+    .about-content, .section-header, .projects, footer {
+        padding-left: 35px !important; 
+        padding-right: 35px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. About 區塊優化 */
+    .about-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-top: 30px !important;
+    }
+
+    .about-image img {
+        width: 200px !important;
+        height: 200px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .about-text {
+        line-height: 2 !important;
+        text-align: justify !important;
+    }
+
+    /* 4. 作品集與 Footer 距離優化 */
+    .projects {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+        margin-bottom: 60px !important; /* 增加底部留白，解決黏太緊問題 */
+    }
+
+    .projects img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 4px !important;
+    }
+
+    /* 5. Footer 文字修正 */
+    footer .footer-section {
+        padding: 30px 0 !important;
+    }
+}
