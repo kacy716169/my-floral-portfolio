@@ -212,58 +212,54 @@ footer {
 
 /* 響應式調整 */
 @media screen and (max-width: 768px) {
-    /* 1. 解決 Header 變兩行的問題：縮小 Logo 並讓選單橫排 */
+    /* 1. Header 修正：讓 Logo 和選單不要擠在同一行 */
     header {
-        display: flex !important;
-        flex-direction: row !important; /* 確保橫向 */
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 15px !important;
+        flex-direction: column !important;
+        padding: 15px 0 !important;
         height: auto !important;
     }
-
     .logo {
-        font-size: 1rem !important; /* 大幅縮小 Logo 避免擠壓 */
-        margin: 0 !important;
+        margin-bottom: 10px !important;
+        font-size: 1.4rem !important;
     }
-
     nav ul {
-        display: flex !important;
-        gap: 10px !important; /* 縮小導覽選項間距 */
-        margin: 0 !important;
-        padding: 0 !important;
+        gap: 20px !important;
     }
 
-    /* 2. 解決圖片在左文字在右：強制垂直排列 */
-    .about-container {
-        display: block !important; /* 徹底放棄 flex，用最原始的上下排列 */
-        padding: 20px !important;
+    /* 2. About Me 修正：圖片在上，文字在下 */
+    #about .about-container {
+        display: flex !important;
+        flex-direction: column !important; /* 強制上下排列 */
+        align-items: center !important;
         text-align: center !important;
+        padding: 0 20px !important;
     }
 
     .profile-img {
-        display: block !important;
-        margin: 0 auto 20px auto !important; /* 置中並給下方留白 */
-        width: 200px !important;
+        width: 200px !important; /* 縮小頭像避免佔滿螢幕 */
         height: 200px !important;
-        float: none !important; /* 萬一妳有用 float，這行能救命 */
+        margin: 0 auto 20px auto !important;
     }
 
     .about-text {
-        width: 100% !important; /* 強制寬度 100%，文字才會掉下來 */
-        display: block !important;
+        width: 100% !important; /* 讓文字寬度佔滿，不要擠在右邊 */
         padding: 0 !important;
-        margin: 0 !important;
     }
 
-    /* 3. 解決作品集一行 3 張：強制一行 1 張 */
-    .works-grid {
-        display: block !important; /* 放棄 grid/flex，讓圖片直接堆疊 */
+    .about-text h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.4 !important;
     }
 
-    .works-grid img {
-        width: 100% !important; /* 圖片撐滿寬度 */
-        margin-bottom: 20px !important; /* 每張圖之間留空隙 */
+    /* 3. 作品集修正：讓圖片變大，一張一行 */
+    .projects-grid {
+        grid-template-columns: 1fr !important; /* 改為一列一張 */
+        gap: 15px !important;
+        padding: 0 15px !important;
+    }
+
+    .projects-grid img {
+        width: 100% !important;
         height: auto !important;
     }
 }
