@@ -217,7 +217,7 @@ footer {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            padding: 20px 0 25px 0 !important; /* 增加下方內距 (Bottom Padding) */
+            padding: 20px 0 100px 0 !important; /* 增加下方內距 (Bottom Padding) */
         }
         .logo {
             font-size: 1.4rem !important;
@@ -248,7 +248,7 @@ footer {
         .about-image img {
             width: 200px !important; /* 稍微放大頭像，視覺較平衡 */
             height: 200px !important;
-            margin-bottom: 30px !important;
+            margin-bottom: 10px !important;
         }
         .about-text {
             line-height: 2 !important; /* 增加行高，閱讀更舒服 */
@@ -260,7 +260,7 @@ footer {
             display: flex !important;
             flex-direction: column !important;
             gap: 25px !important; /* 圖片之間的間距 */
-            margin-bottom: 50px !important; /* 讓最後一張圖跟 Footer 拉開距離 */
+            margin-bottom: 20px !important; /* 讓最後一張圖跟 Footer 拉開距離 */
         }
         .projects img {
             width: 100% !important;
@@ -270,7 +270,6 @@ footer {
 
         /* 5. Footer 文字修正 */
         footer .footer-section {
-            padding: 40px 0 !important; /* 增加 Footer 內部的留白 */
-            border-top: 1px solid #eee; /* 加一條淡淡的線區隔 */
+            padding: 20px 0 !important; /* 增加 Footer 內部的留白 */
         }
     }
