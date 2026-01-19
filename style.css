@@ -211,7 +211,6 @@ footer {
 }
 
 /* 響應式調整 */
-<style>
     @media screen and (max-width: 768px) {
         /* 1. Header 優化：解決選單「懸崖邊」問題 */
         header nav.container {
@@ -275,4 +274,3 @@ footer {
             border-top: 1px solid #eee; /* 加一條淡淡的線區隔 */
         }
     }
-</style>
