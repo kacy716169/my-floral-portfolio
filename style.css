@@ -211,15 +211,6 @@ footer {
 }
 
 /* 響應式調整 */
-從妳提供的截圖來看，Header 變得「太高」且選單位置偏移，主因是代碼中多出了一行 height: 200px;。
-
-在 CSS 響應式佈局中，通常不建議固定高度，因為這會限制內容的排版彈性。當妳設定了 200px，加上原本的 padding: 40px，整個 Header 會被撐到非常巨大，導致妳看到的比例失衡。
-
-請按照以下步驟修正，同時解決妳提到的「橫線」與「空白」問題：
-
-🛠️ 修正版 CSS (請替換原本的 @media 內容)
-CSS
-
 @media screen and (max-width: 768px) {
     /* 1. Header 修正：刪除固定高度，改用 padding 撐開 */
     header nav.container {
