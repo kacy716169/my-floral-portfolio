@@ -212,54 +212,34 @@ footer {
 
 /* 響應式調整 */
 @media screen and (max-width: 768px) {
-    /* 1. Header 修正：讓 Logo 和選單不要擠在同一行 */
-    header {
-        flex-direction: column !important;
-        padding: 15px 0 !important;
-        height: auto !important;
+    /* 1. Header 修正：縮小 Logo 字體 */
+    header .logo {
+        font-size: 1.1rem !important; 
     }
-    .logo {
-        margin-bottom: 10px !important;
-        font-size: 1.4rem !important;
-    }
-    nav ul {
-        gap: 20px !important;
+    header nav ul {
+        gap: 12px !important;
     }
 
-    /* 2. About Me 修正：圖片在上，文字在下 */
-    #about .about-container {
+    /* 2. About 修正：圖片與文字垂直排列 */
+    .about-container {
         display: flex !important;
-        flex-direction: column !important; /* 強制上下排列 */
+        flex-direction: column !important; /* 強制上下排 */
         align-items: center !important;
-        text-align: center !important;
         padding: 0 20px !important;
     }
-
     .profile-img {
-        width: 200px !important; /* 縮小頭像避免佔滿螢幕 */
-        height: 200px !important;
-        margin: 0 auto 20px auto !important;
+        width: 180px !important;
+        height: 180px !important;
+        margin-bottom: 25px !important;
     }
-
     .about-text {
-        width: 100% !important; /* 讓文字寬度佔滿，不要擠在右邊 */
-        padding: 0 !important;
+        width: 100% !important; /* 寬度撐滿，文字才不會擠到右邊 */
+        text-align: center !important;
     }
 
-    .about-text h2 {
-        font-size: 1.5rem !important;
-        line-height: 1.4 !important;
-    }
-
-    /* 3. 作品集修正：讓圖片變大，一張一行 */
+    /* 3. 作品集修正：一張一行 */
     .projects-grid {
-        grid-template-columns: 1fr !important; /* 改為一列一張 */
-        gap: 15px !important;
-        padding: 0 15px !important;
-    }
-
-    .projects-grid img {
-        width: 100% !important;
-        height: auto !important;
+        grid-template-columns: 1fr !important; /* 一列一張 */
+        gap: 20px !important;
     }
 }
