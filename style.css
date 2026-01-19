@@ -211,11 +211,30 @@ footer {
 }
 
 /* 響應式調整 */
-@media (max-width: 992px) {
-    .projects { grid-template-columns: repeat(2, 1fr); }
-    .about-layout { flex-direction: column; text-align: center; gap: 30px; }
-}
+/* 針對手機版的微調 */
+@media (max-width: 768px) {
+    /* 1. 解決文字太靠近邊緣的問題 */
+    .about-text, .container, p { 
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 1.8; /* 順便讓行距寬一點，手機閱讀更舒服 */
+    }
 
-@media (max-width: 600px) {
-    .projects { grid-template-columns: 1fr; }
+    /* 2. 修正 Header 文字重疊/變兩行的問題 */
+    header {
+        display: flex;
+        flex-direction: column; /* 讓名稱跟選單垂直排列 */
+        align-items: center;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    header .logo {
+        font-size: 1.5rem; /* 稍微縮小 Logo 字體 */
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        gap: 15px; /* 縮小導覽列選項之間的間距 */
+    }
 }
