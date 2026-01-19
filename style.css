@@ -211,30 +211,64 @@ footer {
 }
 
 /* 響應式調整 */
-/* 針對手機版的微調 */
 @media (max-width: 768px) {
-    /* 1. 解決文字太靠近邊緣的問題 */
-    .about-text, .container, p { 
-        padding-left: 20px;
-        padding-right: 20px;
-        line-height: 1.8; /* 順便讓行距寬一點，手機閱讀更舒服 */
+    /* 修正全域溢出問題 */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
-    /* 2. 修正 Header 文字重疊/變兩行的問題 */
+    /* 1. Header 調整：縮小 Logo 與選單間距 */
     header {
-        display: flex;
-        flex-direction: column; /* 讓名稱跟選單垂直排列 */
-        align-items: center;
-        text-align: center;
-        padding: 15px 0;
+        padding: 15px 10px !important;
+        display: flex !important;
+        flex-direction: column !important; /* 上下排列，騰出橫向空間 */
+        align-items: center !important;
     }
 
     header .logo {
-        font-size: 1.5rem; /* 稍微縮小 Logo 字體 */
-        margin-bottom: 10px;
+        font-size: 1.2rem !important; /* 縮小 Logo */
+        margin-bottom: 8px !important;
     }
 
     nav ul {
-        gap: 15px; /* 縮小導覽列選項之間的間距 */
+        gap: 15px !important; /* 縮小「關於我」與「作品集」的距離 */
+        padding: 0 !important;
+    }
+
+    /* 2. About 部分：圖片在上，文字在下 */
+    .about-container { /* 假設妳的 HTML 結構包裹這兩個的是這個 class */
+        display: flex !important;
+        flex-direction: column !important; /* 強制垂直排列 */
+        align-items: center !important;
+        padding: 0 20px !important;
+    }
+
+    .profile-img {
+        width: 200px !important; /* 縮小圓形頭像 */
+        height: 200px !important;
+        margin: 0 auto 20px auto !important;
+    }
+
+    .about-text {
+        width: 100% !important;
+        text-align: center !important; /* 文字置中對齊 */
+        padding: 0 !important;
+    }
+
+    /* 3. 作品集調整：圖片放大 */
+    .works-grid { /* 假設妳的作品集容器 class 名稱 */
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* 改成一列一個，圖片才會大 */
+        gap: 20px !important;
+        padding: 0 20px !important;
+    }
+
+    .works-grid img {
+        width: 100% !important; /* 寬度撐滿 */
+        height: auto !important;
+        border-radius: 8px;
     }
 }
