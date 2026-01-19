@@ -211,35 +211,87 @@ footer {
 }
 
 /* 響應式調整 */
+終於！看到這份 HTML 代碼，破案了。
+
+之前一直修不好，是因為我們一直在猜測類別名稱（例如猜 .about-container），但妳的 HTML 裡真正用的是 .about-layout 和 .about-content。難怪不管怎麼寫 display: flex 都沒有用，因為 CSS 根本找不到這些名字！
+
+而且，妳的作品集區塊也沒有用 grid，而是直接把 img 放在 .projects 裡面。
+
+請完全清空妳 style.css 最下面原本寫壞的那段 @media，直接複製貼上這段針對妳這份 HTML 量身打造的代碼。這次類別名稱（Class Name）一個字都不會錯，絕對會生效：
+
+🛠️ 100% 對應妳 HTML 的 CSS 修正碼
+CSS
+
+/* 請貼在 style.css 的最底端 */
 @media screen and (max-width: 768px) {
-    /* 1. Header 修正：縮小 Logo 字體 */
-    header .logo {
-        font-size: 1.1rem !important; 
-    }
-    header nav ul {
-        gap: 12px !important;
-    }
-
-    /* 2. About 修正：圖片與文字垂直排列 */
-    .about-container {
+    
+    /* 1. Header 修正：Logo 縮小，選單置中 */
+    header nav.container {
         display: flex !important;
-        flex-direction: column !important; /* 強制上下排 */
+        flex-direction: column !important; /* 上下排列 */
         align-items: center !important;
-        padding: 0 20px !important;
-    }
-    .profile-img {
-        width: 180px !important;
-        height: 180px !important;
-        margin-bottom: 25px !important;
-    }
-    .about-text {
-        width: 100% !important; /* 寬度撐滿，文字才不會擠到右邊 */
-        text-align: center !important;
+        padding: 15px 0 !important;
     }
 
-    /* 3. 作品集修正：一張一行 */
-    .projects-grid {
-        grid-template-columns: 1fr !important; /* 一列一張 */
+    .logo {
+        font-size: 1.4rem !important; /* 縮小 Logo */
+        margin-bottom: 10px !important;
+    }
+
+    .menu {
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        gap: 20px !important; /* 拉開選項間距 */
+        width: 100% !important;
+    }
+
+    /* 2. About 修正：抓到兇手了！是用 .about-layout */
+    .about-layout {
+        display: flex !important;
+        flex-direction: column !important; /* 強制變為直向排列 */
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .about-image {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-bottom: 25px !important; /* 圖片跟文字拉開距離 */
+    }
+
+    .about-image img {
+        width: 180px !important; /* 控制圓形圖片大小 */
+        height: 180px !important;
+        max-width: none !important;
+    }
+
+    .about-content {
+        width: 100% !important; /* 讓文字寬度佔滿手機 */
+        padding: 0 20px !important; /* 左右留白 */
+        box-sizing: border-box !important;
+    }
+
+    .about-text {
+        text-align: justify !important; /* 文字左右對齊 */
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+    }
+
+    /* 3. 作品集修正：直接控制 .projects 裡面的圖片 */
+    .projects {
+        display: flex !important;
+        flex-direction: column !important; /* 讓圖片垂直堆疊 */
         gap: 20px !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    .projects img {
+        width: 100% !important; /* 圖片寬度撐滿螢幕 */
+        height: auto !important;
+        display: block !important;
+        margin: 0 !important;
     }
 }
