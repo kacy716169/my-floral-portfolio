@@ -211,9 +211,7 @@ footer {
 }
 
 /* 響應式調整 */
-@media screen and (max-width: 768px) {
-    /* 1. Header: 徹底解決巨大化與偏移問題 */
-    @media screen and (max-width: 768px) {
+ @media screen and (max-width: 768px) {
     /* 1. Header 再加大：增加上下 Padding，並讓 Logo 字體更有份量 */
     header nav.container {
         display: flex !important;
