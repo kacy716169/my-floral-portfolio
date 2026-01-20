@@ -181,6 +181,10 @@ body {
   width: 60%;
 }
 
+.mobile-break {
+  display: none;
+}
+
 .about-content p {
     /* 1. 行距設定 */
     line-height: 1.8;  /* 推薦：字體大小的 1.8 倍 */
@@ -272,6 +276,10 @@ footer .container {
     .container {
       padding: 0 35px;
     }
+
+    .logo {
+      width: 20%;
+    }
     
     /* 1. 調整最外層容器，確保上下有留白，左右不貼邊 */
     .about-wrapper {
@@ -291,15 +299,21 @@ footer .container {
         align-items: center; /* 讓內部的標題與段落水平居中對齊 */
     }
 
+    .mobile-break {
+      display: block;
+    }
+
     /* 3. 讓標題與內文寬度相等且邊緣整齊 */
     .about-title {
         width: 100%;
         max-width: 100%;
-        margin: 0 0 20px 0;
+        margin: 0 0 30px 0;
         
         /* 關鍵屬性：強制最後一行（也就是唯一的一行）左右對齊 */
-        text-align: justify;
-        text-align-last: justify; 
+        text-align: center;
+        text-align-last: center;
+        letter-spacing: 3px;
+        line-height: 1.8;
         
         /* 針對 Safari/舊版瀏覽器的補償 */
         text-justify: inter-character; 
@@ -324,7 +338,7 @@ footer .container {
     .about-image {
       width: 150px;
       height: auto;
-      margin: 20px 0;
+      margin: 10px 0;
     }
 
     .fixed-deco {
