@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>辰花 | Florist</title>
+    <title>晨花 | Florist</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <img src="images/flower-lineart-02.png" class="fixed-deco deco-left" alt="背景圖左上">
+    <img src="images/flower-lineart-01.png" class="fixed-deco deco-right" alt="背景圖右下">
+
     <header>
         <nav class="container">
-            <div class="logo">辰花 | Florist</div>
+            <div class="logo">晨花 | ChenHua</div>
             <ul class="menu">
                 <li><a href="#about">關於我</a></li>
                 <li><a href="#projects">作品集</a></li>
@@ -19,49 +25,69 @@
     </header>
     
     <main>
-        <section class="about-section" id="about">
-            <div class="about-layout">
-                <div class="about-image">
-                    <img src="images/florist_profile.jpg" alt="辰花 Profile">
-                </div>
-        
-                <div class="about-content">
-                    <h2 class="about-title">以草木為筆，紀錄時光的痕跡</h2>
-                    <p class="about-text">
-                        我是辰，一名在花草間尋找故事的紀錄者。
-                        對我而言，花藝不只是美感的堆砌，而是一段關於生命的完整紀實。
-                        從含苞、盛放到枯萎，每一片葉子的脈絡與花瓣的轉折，都藏著日常裡最細碎的溫柔。
-                        持續在花藝的道路上探索，我將這些轉瞬即逝的永恆，凝結成你所見到的每一件作品。
-                    </p>
-                </div>
+        <section class="container">
+          <span id="about" class="anchor"></span>
+
+          <div class="about-wrapper">
+            <div class="about-image">
+                <img src="images/florist_profile.jpg" alt="辰花 Profile">
             </div>
+        
+            <div class="about-content">
+                <h2 class="about-title">以草木為筆，紀錄時光的痕跡</h2>
+                <p class="about-text">
+                    我是辰，一名在花草間尋找故事的紀錄者。
+                    <br>對我而言，花藝不只是美感的堆砌，而是一段關於生命的完整紀實。
+                    <br>從含苞、盛放到枯萎，每一片葉子的脈絡與花瓣的轉折，都藏著日常裡最細碎的溫柔。
+                    <br>持續在花藝的道路上探索，我將這些轉瞬即逝的永恆，凝結成你所見到的每一件作品。
+                </p>
+            </div>
+          </div>
         </section>
         
-        <div class="section-header container">
-            <h2 class="section-title">Selected Works</h2>
-            <p class="section-subtitle">捕捉藏在葉片與花瓣間的細碎日常。</p>
-        </div>
 
-        <section class="projects container" id="projects">
-            <img src="images/project_01.jpg">
-            <img src="images/project_02.jpg">
-            <img src="images/project_03.jpg">
-            <img src="images/project_04.jpg">
-            <img src="images/project_05.jpg">
-            <img src="images/project_06.jpg">
-            <img src="images/project_07.jpg">
-            <img src="images/project_08.jpg">
-            <img src="images/project_09.jpg">
-            <img src="images/project_10.jpg">
-            <img src="images/project_11.jpg">
+        <section class="container">
+            <span id="projects" class="anchor"></span>
+
+            <div class="project-header">
+                <h2 class="project-title">Selected Works</h2>
+                <p class="project-subtitle">捕捉藏在葉片與花瓣間的細碎日常。</p>
+            </div>
+          
+            <div class="gallery">
+                <img src="images/project_01.jpg">
+                <img src="images/project_02.jpg">
+                <img src="images/project_03.jpg">
+                <img src="images/project_04.jpg">
+                <img src="images/project_05.jpg">
+                <img src="images/project_06.jpg">
+                <img src="images/project_07.jpg">
+                <img src="images/project_08.jpg">
+                <img src="images/project_09.jpg">
+                <img src="images/project_10.jpg">
+                <img src="images/project_11.jpg">
+                <img src="images/project_12.jpg">
+                <img src="images/project_13.jpg">
+                <img src="images/project_14.jpg">
+            </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-section">
-            <p>Taipei, Taiwan</p>
-            <p>© 2024 辰花 Florist. All rights reserved.</p>
-        </div>
+        <section class="container">
+          <!--  
+          <div class="contact" id="contact">
+            <p>Contact Me</p>
+          </div>
+          -->
+
+          <div class="copyright">
+            <p>Taipei, Taiwan
+            <br>© 2025 晨花 ChenHua. All rights reserved.</p>
+          </div>
+        </section>
     </footer>
-</body>
+
+    <img src="images/flower-lineart.png" class="corner-flower" alt="decorative flower">
+  </body>
 </html>
