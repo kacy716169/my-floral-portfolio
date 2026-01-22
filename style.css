@@ -77,32 +77,34 @@ header {
 }
 
 header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* 元素內容器水平排列 */
+  justify-content: space-between; /* 容器內元素左右撐開 */
+  align-items: center; /* 容器內元素垂直置中 */
   height:100px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 0 40px; /* padding: 上下距離 左右距離 */
 }
 
 body {
-    /* Header 高度 */
-    padding-top: 100px; 
+    padding-top: 100px; /* 預留 Header 高度 */
     margin: 0;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif; /* 優先使用'Noto Sans TC'，若無則使用系統無襯線字體(sans-serif) */
     font-size:14px;
-    color: #333;
+    color: #333; /* HEX(#)有六碼，當每一組的兩個數字都相同時，就可以縮寫。 */
 }
 
 .about-title, .project-header h2 {
     font-family: 'Noto Serif TC', serif;
-    letter-spacing: 0.05em; /* 宋體字距稍微拉開一點點，會有高級感 */
     font-weight: 700;
+    letter-spacing: 0.05em; /* 
+     em 是一個相對單位。它的數值是相對於「當前元素的字體大小（font-size）」來計算的。
+     0.05em：微調，增加一點點呼吸感。
+     0.1em：明顯的鬆散感，常用於標題或全大寫英文。
+     0.2em 及以上：極度鬆散，通常用於特殊設計或裝飾性文字。*/
 }
 
 .logo {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 700; /* Google Font有以下粗細：Thin(100), Light(300), Regular 400, Medium(500), Bold(700), Black(900)，較常用的有400, 500, 700*/
   font-family: 'Noto Serif TC', serif;
   letter-spacing: 0.05em; /* 宋體字距稍微拉開一點點，會有高級感 */
 }
@@ -110,15 +112,15 @@ body {
 .menu {
   display: flex;
   gap:30px;
-  list-style: none;
+  list-style: none; /* 去掉 HTML <ul> 預設的黑色圓點 */
   margin: 0;
   padding: 0;
 }
 
 .menu a {
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
+    text-decoration: none; /* 去掉連結預設的底線 */
+    position: relative; /* 讓底部的裝飾線（.menu a::after）能以這個文字為基準來定位 */
+    transition: color 0.3s ease; /* 定義「顏色」屬性在變化時的動畫曲線。當 color 數值改變時，瀏覽器會以 0.3 秒的時間長度補間中間的顏色數值。 */
     color: #333;
     font-size: 16px;
     font-weight: 400;
@@ -127,13 +129,13 @@ body {
 
 .menu a::after {
     content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;       /* 線條粗細 */
-    bottom: -5px;      /* 距離文字的距離 */
+    position: absolute; 
+    width: 0; /* 初始狀態寬度為 0，所以一開始看不見 */
+    height: 1px; 
+    bottom: -5px; /* 距離文字的距離 */
     left: 0;
-    background-color: #a0a0a0; /* 線條顏色 */
-    transition: width 0.3s ease; /* 控制展開動畫 */
+    background-color: #a0a0a0;
+    transition: width 0.3s ease; /* 定義「寬度」屬性在變化時的動畫曲線。當 width 數值改變時，瀏覽器會以 0.3 秒的時間長度執行寬度拉伸。 */
 }
 
 .menu a:hover {
@@ -159,24 +161,21 @@ body {
 
 .about-image {
   width: 150px;
-  height: auto;
+  aspect-ratio: 1 / 1; /* 確保外框永遠是正方形 */
+  border-radius: 50%;   /* 修成圓形 */
+  overflow: hidden;    /* 關鍵：把超出圓形的部分切掉 */
+  box-shadow:
+  0 0 0 4px rgba(255,255,255,0.8),
+  0 4px 15px rgba(0, 0, 0, 0.1); /* (x偏移, y偏移, 模糊半徑 Blur, 擴散半徑 Spread) */
 }
 
 .about-image img {
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 50%;
-  
-  /* 改用 border 取代 outline，這樣白邊會更穩定 */
-  border: 6px solid white; 
-    
-  /* 加入一點點極淡的陰影，這會讓白邊在灰底上「跳」出來 */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    
-  /* 確保寬度計算包含邊框，圖才不會變形 */
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;        /* 撐滿父容器 */
+  object-fit: cover;   /* 關鍵：保持比例裁切，絕不變形 */
+  object-position: center; /* 預設對齊中心 */
 }
-
+  
 .about-content {
   width: 60%;
 }
@@ -272,7 +271,7 @@ footer .container {
 /* --- RWD 手機版專用設定 --- */
 /* 當螢幕寬度 "小於" 768px 時，這裡面的 CSS 才會生效 */
 @media (max-width: 768px) {
-
+    
     .container {
       padding: 0 35px;
     }
@@ -285,8 +284,10 @@ footer .container {
     .about-wrapper {
         flex-direction: column;
         padding: 40px 40px; /* 增加上下留白，左右給 40px 緩衝 */
+        margin-top: 0;
         gap: 30px;
         align-items: center; /* 讓圖片和文字區塊都在中間 */
+        border-radius: 0 0 15px 15px;
     }
 
     /* 2. 核心修正：將文字容器寬度設為 100% 並統一對齊 */
@@ -339,6 +340,22 @@ footer .container {
       width: 150px;
       height: auto;
       margin: 10px 0;
+    }
+
+    .project-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .gallery {
+        /* 修改為分成兩欄，每欄各佔 50% (1fr 代表等分單位) */
+        grid-template-columns: repeat(2, 1fr); 
+        
+        /* 選填：如果你覺得兩張圖靠太近，可以縮小間距 */
+        gap: 15px; 
     }
 
     .fixed-deco {
